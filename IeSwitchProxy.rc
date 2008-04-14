@@ -1,0 +1,56 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// IeSwitchProxy
+//
+// Copyright ©2007-2008 Liam Kirton <liam@int3.ws>
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// IeSwitchProxy.rc
+//
+// Created: 27/09/2007
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+ISOLATIONAWARE_MANIFEST_RESOURCE_ID RT_MANIFEST "IeSwitchProxy.manifest"
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#include "Resources.h"
+
+#include <windows.h>
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+TBI_NETWORK BITMAP "Resources\\Network.bmp"
+TBI_SETTINGS BITMAP "Resources\\Settings.bmp"
+TBI_HELP BITMAP "Resources\\Help.bmp"
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+DLG_SETTINGS DIALOGEX  0, 0, 370, 145
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "IeSwitchProxy Settings"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+	LTEXT           "Name", -1, 5, 5, 20, 15
+	EDITTEXT        IDC_PROXY_NAME_EDIT, 40, 5, 75, 15, ES_AUTOHSCROLL
+	
+	LTEXT           "Address", -1, 125, 5, 35, 15
+	EDITTEXT        IDC_PROXY_URL_EDIT, 165, 5, 165, 15, ES_AUTOHSCROLL
+
+	LTEXT           "Exclusions", -1, 125, 25, 35, 15
+	EDITTEXT        IDC_PROXY_EXC_EDIT, 165, 25, 165, 15, ES_AUTOHSCROLL
+
+	PUSHBUTTON      "Add", IDC_PROXY_ADD, 335, 5, 30, 15
+	PUSHBUTTON      "Update", IDC_PROXY_UPD, 335, 25, 30, 15
+	PUSHBUTTON      "Delete", IDC_PROXY_DEL, 335, 45, 30, 15
+
+	LTEXT           "Proxies", -1, 5, 45, 25, 15
+    LISTBOX         IDC_PROXY_LIST, 40, 45, 290, 75, LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+
+	PUSHBUTTON      "Up", IDC_PROXY_UP, 335, 90, 30, 15
+	PUSHBUTTON      "Down", IDC_PROXY_DOWN, 335, 105, 30, 15
+
+    DEFPUSHBUTTON   "Save", IDOK, 290, 125, 35, 15, WS_GROUP
+	PUSHBUTTON		"Cancel", IDCANCEL, 330, 125, 35, 15, WS_GROUP
+END
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
